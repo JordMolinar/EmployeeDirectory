@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DTable from "./dTable";
 import Nav from "./NavBar";
-// import API from "../utils/API";
+import Api from "../utils/Api";
 // import "../styles/DataArea.css";
 
 export default class DArea extends Component {
@@ -77,14 +77,14 @@ export default class DArea extends Component {
     this.setState({ filteredUsers: filteredList });
   }
 
-  // componentDidMount() {
-  //   API.getUsers().then(results => {
-  //     this.setState({
-  //       users: results.data.results,
-  //       filteredUsers: results.data.results
-  //     });
-  //   });
-  // }
+  componentDidMount() {
+    Api.getUsers().then(results => {
+      this.setState({
+        users: results.data.results,
+        filteredUsers: results.data.results
+      });
+    });
+  }
 
   render() {
     return (
